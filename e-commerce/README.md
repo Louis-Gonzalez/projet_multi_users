@@ -120,3 +120,17 @@ Grace au fichier d'indexation index.js à la racine du dossier src/stores/ il es
 ```sh
 import {useMyStoreStore} from '@/stores'
 ```
+
+
+
+### Projet BIBLIO'TECH (Louis, Adam, Marc)
+
+V 0.1 -- Création de la homepage avec le header, body et footer
+    - Création homepage (Marc) j'ai modifié le titre H1 déjà créé, créé le dossier img dans assets,
+    j'ai ajouté une carte google map + une photo et une description, ainsi que changement léger du CSS
+
+    - Création composant MonFooter dans Layout (Louis), export/import dans index.js dans components
+    modification App.vue, ajout template footer et composant MonFooter, ajout de CSS dans <style scoped></style>
+
+    - Modification d'App.vue, modif name dans NavItemsArray. 
+    Suppression d'un élement inutile dans MainNav, ainsi que changement léger du CSS
