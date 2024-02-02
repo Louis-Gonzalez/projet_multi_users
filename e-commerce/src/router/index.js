@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '../views/HomePage.vue'
 // Importer un fichier JSON contenant les routes du site
+import LoginPage from '../views/LoginPage.vue'
 import sitemap from '../data/routesList.json'
 
 // Each route should map to a component.
@@ -15,7 +16,13 @@ const routes = [
         path: '/', 
         component: HomePage,
         alias: ['/home', '/chewbaka']
-    }
+    },
+    {
+        name:  "LoginPage",
+        path: '/login', 
+        component: LoginPage,
+    },
+    
   ]
 
 /* SCRIPT  */

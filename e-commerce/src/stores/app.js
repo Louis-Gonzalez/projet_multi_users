@@ -8,14 +8,18 @@ export const useAppStore = defineStore('app', () => {
 
     const getIsAuthenticated = computed(() => isAuthenticated.value)
     function setIsAuthenticated(val) {
+        if(!val){
+            setIsAdmin(false)
+        }
         isAuthenticated.value = val
+
     }
 
     const getIsAdmin = computed(() => isAdmin.value)
     function setIsAdmin(val) {
         isAdmin.value = val
     }
-  
+
     return { 
         isAuthenticated, isAdmin, 
         getIsAuthenticated, setIsAuthenticated,
