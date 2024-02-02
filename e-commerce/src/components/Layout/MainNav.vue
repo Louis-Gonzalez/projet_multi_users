@@ -1,4 +1,7 @@
 <script>
+import { useAppStore } from '../../stores/app'
+import {mapState} from 'pinia'
+
     export default {
         name: "MainNav",
         props: {
@@ -23,7 +26,11 @@
                     return null
                 }
             }
-        }
+        },
+        computed: 
+       {
+        ...mapState(useAppStore, ['getIsAuthenticated', 'getIsAdmin'])
+       } 
     }
 </script>
 
@@ -34,6 +41,12 @@
           <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
         </a>
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li>
+                <router-link v-if="getIsAdmin === true"
+                class="btn btn-success"
+                to="/login"
+                ></router-link>
+            </li>
             <li
                 v-for="(item, index) in navItems"
                 :key="index"

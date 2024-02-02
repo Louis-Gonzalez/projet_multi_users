@@ -1,11 +1,14 @@
 <script >
-import {MainLayout, MainNav} from './components'
+import {MainLayout, MainNav,MonFooter} from './components'
+
+
 
 export default {
   name: 'App',
   components: {
     MainLayout,
-    MainNav
+    MainNav,
+    MonFooter,
   },
   data() {
     return {
@@ -51,7 +54,9 @@ export default {
         <component :is="Component" />
       </transition>
     </router-view>
-
+    <template #footer>
+      <MonFooter/>
+    </template>
   </main-layout>
 </template>
 

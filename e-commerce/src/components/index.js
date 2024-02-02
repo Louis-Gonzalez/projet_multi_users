@@ -1,6 +1,7 @@
 // LAYOUT
 export {default as MainLayout} from './Layout/MainLayout.vue'
 export {default as MainNav} from './Layout/MainNav.vue'
+export {default as MonFooter} from './Layout/MonFooter.vue'
 // FORMS
 export {default as ProductForm} from './Form/ProductForm.vue'
 // PRODUCT
