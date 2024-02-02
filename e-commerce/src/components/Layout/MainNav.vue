@@ -36,17 +36,11 @@ import {mapState} from 'pinia'
 
 <template>
     <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
-          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
-        </a>
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li>
-                <router-link v-if="getIsAdmin === true"
-                class="btn btn-success"
-                to="/login"
-                ></router-link>
-            </li>
+
+
+      <div class="d-flex flex-wrap align-items-center navbar">
+        <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0">
+
             <li
                 v-for="(item, index) in navItems"
                 :key="index"
@@ -62,7 +56,7 @@ import {mapState} from 'pinia'
             </li>
         </ul>
 
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+        <form  role="search">
           <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
         </form>
 
@@ -88,8 +82,11 @@ import {mapState} from 'pinia'
                 </router-link>
             </li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Sign out</a></li>
+            <li><a class="dropdown-item" href="#" @:click="showUserNav = false">Sign out</a></li>
           </ul>
+        </div>
+        <div v-else class="text-end">
+            <button class="btn btn-outline-primary me-2" @:click="showUserNav = true">Connexion</button>
         </div>
       </div>
     </div>
@@ -98,6 +95,9 @@ import {mapState} from 'pinia'
 <style scoped>
     * {
     transition: all .3s ease-in-out;
+    }
+    .navbar {
+        justify-content: space-between;
     }
     .router-link-active {
         font-weight: bold;
@@ -108,3 +108,5 @@ import {mapState} from 'pinia'
         font-size: 1.5rem;
     }
 </style>
+
+<!-- $router.push('/login') ligne 79 btn-->
