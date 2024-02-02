@@ -24,8 +24,14 @@ export default {
           class: "link-body-emphasis"
         },
         {
-          name: "Products",
-          link: "/admin/products",
+          name: "Location",
+          link: "/location",
+          target: "_self",
+          class: "link-body-emphasis"
+        },
+        {
+          name: "Admin",
+          link: "/admin",
           target: "_self",
           class: "link-body-emphasis"
         }
@@ -42,7 +48,7 @@ export default {
       <main-nav
         :navItems="navItemsArray"
         :userNavItems="userNavItemsArray"
-        :showUserNav="true"
+        :showUserNav="false"
       />
     </template>
     
