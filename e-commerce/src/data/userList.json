@@ -12,6 +12,7 @@
         "ville":"Francheleins",
         "admin":true,
         "status":true,
+        "avatar":"adam.doudeau2.png",
         "historique": [
             {
                 "dateLocation":"2022-01-01",

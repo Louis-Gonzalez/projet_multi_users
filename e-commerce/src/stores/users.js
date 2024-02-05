@@ -27,7 +27,7 @@ export const useUsersStore = defineStore(STORE_NAME, {
         updateLocaleStorage() {
             localStorage.setItem(STORE_LOCALE_STORAGE_KEY, JSON.stringify(this.users))
         },
-        addProduct(user) {
+        addUser(user) {
             this.users.push(user)
             this.updateLocaleStorage()
         },
