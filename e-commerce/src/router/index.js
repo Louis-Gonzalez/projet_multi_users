@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '../views/HomePage.vue'
+import FormRegister from '../components/Form/FormRegister.vue'
 // Importer un fichier JSON contenant les routes du site
 import LoginPage from '../views/LoginPage.vue'
 import sitemap from '../data/routesList.json'
@@ -22,6 +23,11 @@ const routes = [
         path: '/login', 
         component: LoginPage,
     },
+    {
+        name:  "RegisterPage",
+        path: '/register', 
+        component: FormRegister,
+    }
     
   ]
 
