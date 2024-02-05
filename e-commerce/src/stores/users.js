@@ -17,11 +17,13 @@ export const useUsersStore = defineStore(STORE_NAME, {
     state: () => {
         return {
             users: getCurrentState(),
+            currentUser : null,
         }
     },
     getters: {
         getUsers: (state) => state.users,
         getUserById: (state) => (id) => state.users.find(user => user.id == id),
+        getCurrentUser: (state) => state.currentUser
     },
     actions: {
         updateLocaleStorage() {
@@ -31,5 +33,8 @@ export const useUsersStore = defineStore(STORE_NAME, {
             this.users.push(user)
             this.updateLocaleStorage()
         },
+        setCurrentUser (user){
+            this.currentUser = user;
+        }
     }
 })

@@ -16,5 +16,11 @@
         "name": "ProductDetailsPage",
         "path": "/products/:id",
         "component": "ProductDetailsPage.vue" 
+    },
+    { 
+        "uuid": "login_page",
+        "name": "LoginPage",
+        "path": "/login",
+        "component": "LoginPage.vue" 
     }
 ]

@@ -1,5 +1,6 @@
 <script>
 import {useUsersStore} from '../stores'
+import { mapState, mapActions } from 'pinia'
 
 export default {
     name: "LoginPage",
@@ -9,34 +10,40 @@ export default {
             password: "",
         }
     },
-    method: {
-        matchLogin(userName,password){
+    methods: {
+        matchLogin(){
+            console.log(this.getUsers)
+            const user = this.getUsers.find(user => user.username === this.userName)
             // il faut parcourir le tabelau de usersName et qu'il y a une corrspodance.
-            if (getUSers.find (user => user.userName === userName)){
                 // ceci renvoi un objet user.password
-                if (password == user.password){
+                if (this.password == user.password){
                     // aller sur home avec le profil connecté
-                    $router.push('/login')
+                    this.setCurrentUser(user);
+                    $router.push('/home')
                 }
-            }
+                else{
+                    this.setCurrentUser(null)
+                } 
             return "Vous etes connecté"
-        }
+        },
+        ...mapActions(useUsersStore, ['setCurrentUser'])
     },
-computed: {
-    ...mapState(useUsersStore, ['getUsers'])
+    computed: {
+        ...mapState(useUsersStore, ['getUsers'])
 
-}
+
+    }
 
 
 }
 </script>
 
 <template>
-    <form>
+    <form @submit.prevent="matchLogin">
         <table>
             <div class="super-div-input">
-                <h2>LoginPage</h2>
                 <div class="div-input">
+                    <h2>LoginPage</h2>
                     <label for="userName" method="post"> Entrer votre UserName :</label>
                     <input class= "input" type="text" name="userName" v-model="userName">
                 </div>
@@ -45,8 +52,9 @@ computed: {
                     <input class= "input" type="password" name="password" v-model="password">
                 </div>
                 <div class="div-input">
-                    <button type="submit" @click.prevent="matchLogin" class="btn-submit">Login</button>
-                    <p id="vous-inscrire" a href="lien à venir">
+                    <router-link :to="'/home'" ><button type="submit" class="btn-submit">Login</button></router-link>
+                    
+                    <p id="vous-inscrire" a href="../components/Form/FormRegister.vue">
                         Cliquer ici pour vous inscrire !
                     </p>
                 </div>
