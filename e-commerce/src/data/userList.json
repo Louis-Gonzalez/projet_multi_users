@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "username":"adamass",
+        "password":"ssamada",
+        "nom":"Doudeau",
+        "prenom":"Adam",
+        "email":"adam.doudeau2@gmail.com",
+        "adresse":"Chez moi",
+        "tel":"0606060606",
+        "cp":"01090",
+        "ville":"Francheleins",
+        "admin":true,
+        "status":true,
+        "historique": [
+            {
+                "dateLocation":"2022-01-01",
+                "id":"14"
+            },
+            {
+                "dateLocation":"2023-05-07",
+                "id":"17"
+            }
+        ]
+    }
+]
