@@ -1,6 +1,7 @@
 <script>
-import { useAppStore } from '../../stores/app'
-import {mapState} from 'pinia'
+import { useAppStore } from '../../stores'
+import {mapState, mapActions} from 'pinia'
+import { useUsersStore } from '../../stores'
 
     export default {
         name: "MainNav",
@@ -27,17 +28,23 @@ import {mapState} from 'pinia'
                 }
             }
         },
+        methods:
+        {
+        ...mapActions(useUsersStore, ['setCurrentUser']),
+        test(){
+            console.log("eyho", getCurrentUser)
+        }
+        },
         computed: 
-       {
-        ...mapState(useAppStore, ['getIsAuthenticated', 'getIsAdmin'])
-       } 
+        {
+        ...mapState(useAppStore, ['getIsAuthenticated', 'getIsAdmin']),
+        ...mapState(useUsersStore, ['getCurrentUser'])
+        } 
     }
 </script>
 
 <template>
     <div class="container">
-
-
       <div class="d-flex flex-wrap align-items-center navbar">
         <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0">
 
@@ -57,36 +64,36 @@ import {mapState} from 'pinia'
         </ul>
 
         <form  role="search">
-          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+            <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
         </form>
 
         <div
-            v-if="showUserNav === true"
+            v-if="this.getCurrentUser != null "
             class="dropdown text-end"
         >
-          <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle show" data-bs-toggle="dropdown" aria-expanded="true">
+            <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle show" data-bs-toggle="dropdown" aria-expanded="true">
             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
-          </a>
-          <ul class="dropdown-menu text-small" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(0px, 34px);">
-            <li
-                v-for="(item, index) in userNavItems"
-                :key="index"
-            >
-                <router-link
-                    :to="item.link ? item.link : '#' "
-                    :class="item.class ? item.class : null"
-                    :target="item.target ? item.target : '_self'"
-                    class="dropdown-item"
+            </a>
+            <ul class="dropdown-menu text-small" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(0px, 34px);">
+                <li
+                    v-for="(item, index) in userNavItems"
+                    :key="index"
                 >
-                    {{item.name ? item.name : 'link'}}
-                </router-link>
-            </li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#" @:click="showUserNav = false">Sign out</a></li>
-          </ul>
+                    <router-link
+                        :to="item.link ? item.link : '#' "
+                        :class="item.class ? item.class : null"
+                        :target="item.target ? item.target : '_self'"
+                        class="dropdown-item"
+                    >
+                        {{item.name ? item.name : 'link'}}
+                    </router-link>
+                </li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#" @:click="setCurrentUser(null)">Sign out</a></li>
+            </ul>
         </div>
         <div v-else class="text-end">
-            <button class="btn btn-outline-primary me-2" @:click="showUserNav = true">Connexion</button>
+            <button class="btn btn-outline-primary me-2" @:click="$router.push('/login')">Connexion</button>
         </div>
         <div>
             <button @:click="$router.push('/register')">Inscription</button>
@@ -112,4 +119,4 @@ import {mapState} from 'pinia'
     }
 </style>
 
-<!-- $router.push('/login') ligne 79 btn-->
+<!-- $router.push('/login') ligne 79 btn   @:click="showUserNav = true"  -->

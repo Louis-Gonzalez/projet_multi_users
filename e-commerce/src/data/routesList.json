@@ -22,5 +22,11 @@
         "name": "FormRegister",
         "path": "/register",
         "component": "FormRegister.vue" 
+    },
+    { 
+        "uuid": "login_page",
+        "name": "LoginPage",
+        "path": "/login",
+        "component": "LoginPage.vue" 
     }
 ]
