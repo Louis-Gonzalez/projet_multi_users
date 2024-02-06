@@ -88,6 +88,9 @@ import {mapState} from 'pinia'
         <div v-else class="text-end">
             <button class="btn btn-outline-primary me-2" @:click="showUserNav = true">Connexion</button>
         </div>
+        <div>
+            <button @:click="$router.push('/register')">Inscription</button>
+        </div>
       </div>
     </div>
 </template>

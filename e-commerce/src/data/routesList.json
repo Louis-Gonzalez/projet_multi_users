@@ -16,5 +16,11 @@
         "name": "ProductDetailsPage",
         "path": "/products/:id",
         "component": "ProductDetailsPage.vue" 
+    },
+    {
+        "uuid": "form_register",
+        "name": "FormRegister",
+        "path": "/register",
+        "component": "FormRegister.vue" 
     }
 ]
