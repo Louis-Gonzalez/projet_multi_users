@@ -8,3 +8,5 @@ export {default as ProductForm} from './Form/ProductForm.vue'
 export {default as ProductDetails} from './Product/ProductDetails.vue'
 export {default as ProductDetailsCard} from './Product/ProductDetailsCard.vue'
 export {default as ProductsTable} from './Product/ProductsTable.vue'
+// LIVRE
+export {default as LivreDetails} from './Location/LivreDetails.vue'
