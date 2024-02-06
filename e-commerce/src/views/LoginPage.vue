@@ -19,7 +19,7 @@ export default {
                 if (this.password == user.password){
                     // aller sur home avec le profil connecté
                     this.setCurrentUser(user);
-                    $router.push('/home')
+                    this.$router.push({name:'HomePage'})
                 }
                 else{
                     this.setCurrentUser(null)
@@ -52,7 +52,7 @@ export default {
                     <input class= "input" type="password" name="password" v-model="password">
                 </div>
                 <div class="div-input">
-                    <router-link :to="'/home'" ><button type="submit" class="btn-submit">Login</button></router-link>
+                    <button type="submit" class="btn-submit">Login</button>
                     
                     <p id="vous-inscrire" a href="../components/Form/FormRegister.vue">
                         Cliquer ici pour vous inscrire !

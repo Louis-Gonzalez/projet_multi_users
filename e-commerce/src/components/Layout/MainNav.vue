@@ -89,7 +89,7 @@ import { useUsersStore } from '../../stores'
                     </router-link>
                 </li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#" @:click="getCurrentUser(null)">Sign out</a></li>
+                <li><a class="dropdown-item" href="#" @:click="setCurrentUser(null)">Sign out</a></li>
             </ul>
         </div>
         <div v-else class="text-end">
