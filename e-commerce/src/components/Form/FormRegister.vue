@@ -19,6 +19,7 @@ export default {
     },
     methods: {
         submitForm() {
+            console.log(this.nom)
             const user = {
                 nom : this.nom,
                 prenom : this.prenom,
@@ -36,8 +37,12 @@ export default {
                 status : true
             }
             this.addUser(user)
+            console.log(this.getUsers)
         },
         ...mapActions(useUsersStore, ['addUser'])
+    },
+    computed: {
+        ...mapState(useUsersStore, ['getUsers'])
     }
 }
 </script>
@@ -45,7 +50,7 @@ export default {
 <template>
     <h1>inscription</h1>
     <div class="formulaire">
-        <form>
+        <form @submit.prevent="submitForm">
             <div class="formulaire"></div>
             <div>
                 <label for="nom">Nom </label>
