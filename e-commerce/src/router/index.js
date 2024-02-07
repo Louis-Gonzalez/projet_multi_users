@@ -4,6 +4,7 @@ import FormRegister from '../components/Form/FormRegister.vue'
 // Importer un fichier JSON contenant les routes du site
 import LoginPage from '../views/LoginPage.vue'
 import sitemap from '../data/routesList.json'
+import HomeLocationPage from '../components/Location/HomeLocationPage.vue'
 
 // Each route should map to a component.
 // We'll talk about nested routes later.
@@ -27,15 +28,20 @@ const routes = [
         name:  "RegisterPage",
         path: '/register', 
         component: FormRegister,
+    },
+    {
+        name: "LocationPage",
+        path: '/location',
+        component: HomeLocationPage,
     }
     
-  ]
+]
 
 /* SCRIPT  */
 sitemap.forEach(el => {
     let newRoute = setRoute(el)
     routes.push(newRoute)
-  });
+});
 
 // Cette fonction permet de s'assurer que le chemin d'import pour le composant
 // commemence par un '/'
@@ -56,7 +62,7 @@ function setRoute(el, level = null) {
         strict: el.strict ? el.strict : false,
         alias: el.alias ? el.alias : [],
         redirect: el.redirect ? el.redirect : null
-      }
+    }
     if (level == null) {
         newRoute.children = el.children ? getChildrenData(el.children) : null
     }

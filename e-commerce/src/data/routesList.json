@@ -29,4 +29,5 @@
         "path": "/login",
         "component": "LoginPage.vue" 
     }
+    
 ]
