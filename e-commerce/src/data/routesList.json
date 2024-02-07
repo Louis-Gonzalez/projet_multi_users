@@ -28,6 +28,12 @@
         "name": "LoginPage",
         "path": "/login",
         "component": "LoginPage.vue" 
+    },
+    { 
+        "uuid": "livre_details_page",
+        "name": "LivreDetailsPage",
+        "path": "/livres/:id",
+        "component": "LivreDetailsPage.vue" 
     }
     
 ]

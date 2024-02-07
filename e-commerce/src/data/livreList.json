@@ -85,8 +85,8 @@
     {
     "id": 8,
     "titre": "L'idiot et la psychiatre",
-    "auteur":"fiodor dostoïevski",
-    "categorie":"psychologie",
+    "auteur":"Fiodor Dostoïevski",
+    "categorie":"Psychologie",
     "etat":"bon etat",
     "emplacement":{"allee":"adulte", "etagere":1},
     "img":"idiot-psychiatre.png",
@@ -125,7 +125,7 @@
     "categorie":"roman",
     "etat":"bon etat",
     "emplacement":{"allee":"histoire", "etagere":5},
-    "img":"les-enfnats-du-graal.png",
+    "img":"les-enfants-du-graal.png",
     "nb_sortie":14,
     "description":"En 1244, à la chute du château de Montségur, quatre cavaliers s'échappent dans la nuit emportant avec eux le trésor des Cathares. Ce trésor n'est autre que deux enfants, Roç et Yeza, qui seraient les descendants de la lignée royale du Christ. ",
     "short_descript": "En 1244, à la chute du château de Montségur, quatre cavaliers s'échappent dans la nuit emportant avec eux..."
@@ -204,12 +204,12 @@
     },
     {
     "id": 18,
-    "titre": "Cycle de la compagnie noire",
+    "titre": "annales de la compagnie noire",
     "auteur":"Glen Cook",
     "categorie":"roman",
     "etat":"bon etat",
     "emplacement":{"allee":"fantasy", "etagere":1},
-    "img":"cercle-de-la-compagnie-noire.jpg",
+    "img":"annales-de-la-compagnie-noire.jpg",
     "nb_sortie":17,
     "description":"La Compagnie noire est une troupe de mercenaires dont l'histoire, relatée dans ses annales, s'étend sur près de quatre-cents ans. Elle vaque de par le monde depuis sa création en se vendant au plus offrant, capable de s'installer parfois dans une contrée durant trente années ou bien pour une durée très limitée. Elle ne recrute que rarement, et à la condition que le postulant ait rompu avec son passé, ses drames personnels, etc. La Compagnie est considérée par ses soldats comme un refuge, mais aussi comme une famille qu'on ne peut plus quitter après l'avoir intégrée. ",
     "short_descript": "La Compagnie noire est une troupe de mercenaires dont l'histoire, relatée dans ses annales, s'étend sur..."
