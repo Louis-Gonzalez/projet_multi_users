@@ -19,7 +19,7 @@ export default {
                 if (this.password == user.password){
                     // aller sur home avec le profil connecté
                     this.setCurrentUser(user);
-                    this.$router.push({name:'HomePage'})
+                    this.$router.go(-1)
                 }
                 else{
                     this.setCurrentUser(null)

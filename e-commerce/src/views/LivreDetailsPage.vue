@@ -1,6 +1,7 @@
 <script>
 import { mapState } from 'pinia'
-import {LivreDetails} from '@/components'
+import { useLivresStore,useUsersStore } from '@/stores'
+import { LivreDetails } from '@/components'
 
 export default {
     name: "LivreDetailsPage",

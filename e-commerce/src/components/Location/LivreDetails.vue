@@ -1,6 +1,6 @@
 <script>
 import { mapState, mapActions } from "pinia";
-import { useLivresStore } from "../../stores";
+import { useLivresStore,useUsersStore } from "../../stores";
 
 export default {
   name: "LivreDetails",
@@ -10,56 +10,77 @@ export default {
       default: null,
     },
   },
+  methods: {
+    affImg() {
+      console.log(this.getCurrentLivre)
+      const imgUrl = new URL("../../assets/img_livres/" + this.getCurrentLivre.img, import.meta.url).href
+      return imgUrl
+    }
+  },
   // Récupérer le paramètre de route qui contient l'id de notre produit
   // Récupérer le produit correspondant à l'id dans le paramètre de route
   // en utilisant le store product
   computed: {
-    ...mapState(useLivresStore, ["getLivreById"]),
+    ...mapState(useLivresStore, ["getLivreById","getLivres"]),
+    ...mapState(useUsersStore, ['getCurrentUser']),
     getCurrentLivre() {
       console.log(this.getLivreById(this.livreId));
       return this.getLivreById(this.livreId);
     },
-  },
+
+
+    getFourLivre() {
+      const arr = this.getLivres;
+      let largest = arr[0];
+      let secondLargest = -Infinity;
+      let thirdLargest = -Infinity;
+      let fourthLargest = -Infinity;
+      for (let i = 1; i < arr.length; i++) {
+        if (arr[i].nb_sortie > largest.nb_sortie) {
+          fourthLargest = thirdLargest;
+          thirdLargest = secondLargest;
+          secondLargest = largest;
+          largest = arr[i];
+        } else if (arr[i].nb_sortie < largest.nb_sortie && arr[i].nb_sortie > secondLargest.nb_sortie) {
+          fourthLargest = thirdLargest;
+          thirdLargest = secondLargest;
+          secondLargest = arr[i];
+        }
+        else if(arr[i].nb_sortie < secondLargest.nb_sortie && arr[i].nb_sortie > thirdLargest.nb_sortie){
+          fourthLargest = thirdLargest;
+          thirdLargest = arr[i];
+        }
+        else if(arr[i].nb_sortie < thirdLargest.nb_sortie && arr[i].nb_sortie > fourthLargest.nb_sortie){
+          fourthLargest = arr[i];
+        }
+      }
+      return [largest.titre,secondLargest.titre, thirdLargest.titre, fourthLargest.titre];
+    }
+  }
 };
 </script>
 
 
 <template>
+  <p> {{ getFourLivre }}</p>
   <section v-if="getCurrentLivre != null" class="container py-5">
     <article class="row">
       <section class="col-lg-6">
         <img
-          src="http://via.placeholder.com/640x360.jpg"
+          :src = affImg()
           class="img-fluid"
           alt="Product Image"
+          style="height: 500px"
         />
       </section>
       <section class="col-lg-6">
-        <h2 class="fw-bold">{{ getCurrentProduct.name }}</h2>
-        <p class="text-muted">{{ getCurrentProduct.category }}</p>
-        <h3 class="my-4">{{ getCurrentProduct.price }}€ HT</h3>
-        <p class="text-muted">
-          tva :{{ getCurrentProduct.vta }}% -
-          {{ vtaCalculation(getCurrentProduct.price, getCurrentProduct.vta) }}€
-          TTC
-        </p>
-        <p class="mb-4">A mini Description</p>
+        <h2 class="fw-bold">{{ getCurrentLivre.titre }}</h2>
+        <p class="text-muted">{{ getCurrentLivre.categorie }}</p>
+        <p class="mb-4">{{ getCurrentLivre.short_descript }}</p>
         <div class="d-flex gap-3 mb-4">
-          <input
-            type="number"
-            class="form-control"
-            value="1"
-            style="max-width: 80px"
-          />
-          <button class="btn btn-primary" type="button">Add to Cart</button>
-        </div>
-        <div>
-          <button class="btn btn-outline-secondary btn-sm" type="button">
-            Add to Wishlist
-          </button>
-          <button class="btn btn-outline-secondary btn-sm" type="button">
-            Compare
-          </button>
+          <button v-if="getCurrentUser == null" class="btn btn-outline-primary me-2" @:click="$router.push('/login')">Connexion</button>
+          <button v-else-if="getCurrentLivre.etat!='moyennement abimé' && getCurrentLivre.etat!='abimé'" class="btn btn-primary" type="button">Reservation</button>
+          <button v-else class="btn btn-primary disabled" type="button">Indisponible à la location</button>
         </div>
       </section>
     </article>
@@ -116,7 +137,7 @@ export default {
           aria-labelledby="description-tab"
         >
           <p class="mt-3">
-            {{ getCurrentProduct.description }}
+            {{ getCurrentLivre.description }}
           </p>
         </div>
         <div
