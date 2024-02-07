@@ -125,7 +125,7 @@ import {useMyStoreStore} from '@/stores'
 
 ### Projet BIBLIO'TECH (Louis, Adam, Marc)
 
-V 0.1 -- Création de la homepage avec le header, body et footer
+V 0.1 -- Création de la homepage avec le header, body et footer.
     - Création homepage (Marc) j'ai modifié le titre H1 déjà créé, créé le dossier img dans assets,
     j'ai ajouté une carte google map + une photo et une description, ainsi que changement léger du CSS
 
@@ -134,3 +134,16 @@ V 0.1 -- Création de la homepage avec le header, body et footer
 
     - Modification d'App.vue, modif name dans NavItemsArray. 
     Suppression d'un élement inutile dans MainNav, ainsi que changement léger du CSS
+
+V 0.2 -- création des pages inscription et login.
+    - Marc : création page inscription via le composant FormRegister, utilisation de data() et de method et création du template pour le HTML
+    - Adam : création liste des users et du store users avec fonction add (local storage)
+    - Louis : création page login et pouvoir se connecter avec un user.
+
+V 0.3 -- création de la page location et ses dépendences
+    - Louis : création du store livre, d'un jeu de données de livres, création du chemin vers la page location, home-location-page.
+    - Marc : création de la page de liste des livres avec lien vers la page détaillé d'un livre.
+    - Adam : création de la page détaillée d'un livre et création fonction affiche image du livre et getFourLivre (récupérer les 4 livres les plus loués).
+
+V 0.4 -- 
+    -

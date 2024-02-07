@@ -4,7 +4,11 @@ import FormRegister from '../components/Form/FormRegister.vue'
 // Importer un fichier JSON contenant les routes du site
 import LoginPage from '../views/LoginPage.vue'
 import sitemap from '../data/routesList.json'
+
 import HomeLocationPage from '../components/Location/HomeLocationPage.vue'
+
+import { LivreListe } from '../components'
+
 
 // Each route should map to a component.
 // We'll talk about nested routes later.
@@ -30,9 +34,16 @@ const routes = [
         component: FormRegister,
     },
     {
+
         name: "LocationPage",
         path: '/location',
         component: HomeLocationPage,
+    },
+    {
+        
+        name: "LivreListe",
+        path: '/livreliste',
+        component:LivreListe,
     }
     
 ]
