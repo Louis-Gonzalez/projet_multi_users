@@ -10,6 +10,8 @@ import HomeLocationPage from '../components/Location/HomeLocationPage.vue'
 import { LivreListe } from '../components'
 import { HomeAdminPage } from '../components'
 import { AdminCreateLivre } from '../components'
+import AdminTabLivres from '../views/Admin/AdminTabLivres.vue'
+import AdminEditLivre from '../views/Admin/AdminEditLivre.vue'
 
 
 // Each route should map to a component.
@@ -57,6 +59,17 @@ const routes = [
         name: "AdminCreateLivre",
         path: "/admin/createlivres",
         component: AdminCreateLivre
+    },
+    {
+
+        name: "AdminTabLivres",
+        path: "/admin/admintablivres",
+        component: AdminTabLivres
+    },
+    {
+        name: "AdminEditLivre",
+        path: "/admin/admineditlivre",
+        component: AdminEditLivre
     }
     
 ]

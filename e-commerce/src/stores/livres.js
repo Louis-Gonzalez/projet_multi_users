@@ -15,11 +15,13 @@ export const useLivresStore = defineStore(STORE_NAME, {
         return {
             livres: getCurrentState(),
             currentLivre : null,
+            livreToEdit: null,
         }
     },
     getters: {
         getLivres: (state) => state.livres,
         getLivreById: (state) => (id) => state.livres.find(livre => livre.id == id),
+        getLivreToEdit: (state) => state.livreToEdit
     },
     actions: {
         updateLocaleStorage() {
@@ -28,6 +30,22 @@ export const useLivresStore = defineStore(STORE_NAME, {
         addLivre(livre) {
             this.livres.push(livre)
             this.updateLocaleStorage()
+        },
+        deleteLivre(livre) {
+            this.livres = this.livres.filter(el => el.id != livre.id)
+            this.updateLocaleStorage()
+        },
+        setLivreToEdit(livre) {
+            this.livreToEdit = livre
+            console.log(this.livreToEdit)
+        },
+        updateLivre(livre){
+            const index = this.livres.findIndex(el => {
+                return el.id === livre.id
+            })
+            this.livres[index] = livre
+            this.updateLocaleStorage()
         }
+        
     }
 })

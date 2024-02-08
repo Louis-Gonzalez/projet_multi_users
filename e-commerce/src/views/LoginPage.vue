@@ -6,14 +6,15 @@ export default {
     name: "LoginPage",
     data() {
         return {
-            userName: "", // c'est dans le return les actions avec v-model
+            username: "", // c'est dans le return les actions avec v-model
             password: "",
         }
     },
     methods: {
         matchLogin(){
             console.log(this.getUsers)
-            const user = this.getUsers.find(user => user.username === this.userName)
+            const user = this.getUsers.find(user => user.username === this.username)
+            console.log(user)
             // il faut parcourir le tabelau de usersName et qu'il y a une corrspodance.
                 // ceci renvoi un objet user.password
                 if (this.password == user.password){
@@ -45,7 +46,7 @@ export default {
                 <div class="div-input">
                     <h2>LoginPage</h2>
                     <label for="userName" method="post"> Entrer votre UserName :</label>
-                    <input class= "input" type="text" name="userName" v-model="userName">
+                    <input class= "input" type="text" name="userName" v-model="username">
                 </div>
                 <div class="div-input">
                     <label for="password" method="post"> Entrer votre password :</label>

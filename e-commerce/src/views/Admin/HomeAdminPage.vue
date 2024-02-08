@@ -18,9 +18,9 @@
                         <h3 class="change">Création d'un livre</h3>
                     </div>
                 </div>
-                <div @click="this.$router.push({name: 'AdminEditLivre'})" class="modif-book">
+                <div @click="this.$router.push({name: 'AdminTabLivres'})" class="modif-book">
                     <div>
-                        <h3 class="change">Modification d'un livre</h3>
+                        <h3 class="change">Tableau des livres</h3>
                     </div>
                 </div>
          </div>

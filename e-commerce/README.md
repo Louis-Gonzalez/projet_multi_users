@@ -145,5 +145,7 @@ V 0.3 -- création de la page location et ses dépendences
     - Marc : création de la page de liste des livres avec lien vers la page détaillé d'un livre.
     - Adam : création de la page détaillée d'un livre et création fonction affiche image du livre et getFourLivre (récupérer les 4 livres les plus loués).
 
-V 0.4 -- 
-    -
+V 0.4 -- Création des pages en lien avec les administrateurs
+    - Marc : création de la page HomeAdminPage.vue avec CSS, création de la page AdminCreateLivre.vue avec formulaire de création de livre (data + method) (Adam à géré le resetForm)
+    - Adam : création des liens entre les différentes pages de locations, création de l'affichage de la page ListeLivre selon la catégorie sélectionnée.
+    - Louis : création AdminTabUsers.

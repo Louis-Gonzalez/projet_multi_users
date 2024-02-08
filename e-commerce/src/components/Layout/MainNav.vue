@@ -31,14 +31,23 @@ import { useUsersStore } from '../../stores'
         methods:
         {
         ...mapActions(useUsersStore, ['setCurrentUser']),
-        test(){
-            console.log("eyho", getCurrentUser)
-        }
         },
         computed: 
         {
         ...mapState(useAppStore, ['getIsAuthenticated', 'getIsAdmin']),
-        ...mapState(useUsersStore, ['getCurrentUser'])
+        ...mapState(useUsersStore, ['getCurrentUser']),
+        getAdmin() {
+            let x
+            if (this.getCurrentUser != null) {
+                x =  this.getCurrentUser.admin
+            }
+            else {
+                x = false
+            }
+            console.log(this.getCurrentUser)
+            console.log(x)
+            return x
+        }
         } 
     }
 </script>
@@ -60,6 +69,12 @@ import { useUsersStore } from '../../stores'
                 >
                     {{item.name ? item.name : 'link'}}
                 </router-link>
+            </li>
+            <li v-if="this.getAdmin">
+                <router-link
+                    :to="'/admin'"
+                    class="nav-link px-2 link-secondary"
+                    >Admin</router-link>
             </li>
         </ul>
 

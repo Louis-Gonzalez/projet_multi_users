@@ -37,9 +37,14 @@ import { useLivresStore } from '../../stores'
                 this.addLivre(book)
                 this.resetForm()
                 },
+                handleFileUpload(){
+                    const urlImg = this.$refs.img.files[0];
+                    this.img = urlImg.name
+                    console.log( this.$refs.img)
+                },
                 ...mapActions(useLivresStore, ['addLivre']),
                 resetForm() {
-                    this.titre = 'b'
+                    this.titre = ''
                     this.auteur = ''
                     this.categorie = ''
                     this.etat =  null
@@ -49,7 +54,6 @@ import { useLivresStore } from '../../stores'
                     this.nb_sortie = null
                     this.description = null
                     this.short_descript = null
-                    console.log(this.titre)
                     },
             },
         }
@@ -57,64 +61,103 @@ import { useLivresStore } from '../../stores'
 </script>
 
 <template>
-    <h1>Nouveau livre</h1>
+    
     <div class="new-book">
+        <div class="titre-nouveau-livre">
+            <h1>Nouveau livre</h1>
+        </div>
         <form @submit.prevent="submitLivre">
             <div>
-                <label for="titre">Titre </label>
+                <label for="titre">Titre : </label>
                 <input type="text" name="titre" v-model="titre" required/>
             </div>
             <div>
-                <label for="auteur">Auteur </label>
+                <label for="auteur">Auteur :</label>
                 <input type="text" name="auteur" v-model="auteur" required/>
             </div>
             <div>
-                <label for="categorie">Catégorie </label>
+                <label for="categorie">Catégorie : </label>
                 <input type="text" name="categorie" v-model="categorie" required/>
             </div>
-            <div>
-                <label for="etat">Etat </label>
-                <input type="text" name="etat" v-model="etat" required/>
+            <div class="status">
+                        <label for="status">Etat du livre :</label>
+                        <select v-model="etat" required>
+                            <h3>Ouvrir l'état du livre </h3>
+                            <option value="bon-etat">Bon état</option>
+                            <option value="moyennement-abime">Moyennement abîmé </option>
+                            <option value="abime">Abîme</option>
+                        </select>
             </div>
             <div>
-                <label for="allee">Allée </label>
+                <label for="allee">Allée :</label>
                 <input type="text" name="allee" v-model="allee" required/>
             </div>
             <div>
-                <label for="etagere">Etagère </label>
+                <label for="etagere">Etagère : </label>
                 <input type="text" name="etagere" v-model="etagere" required/>
             </div>
             <div>
-                <label for="img">Image </label>
-                <input type="file" accept=".jpeg, .png, .jpg, .gif" name="img" required/>
+                <label for="img">Image : </label>
+                <input type="file" accept=".jpeg, .png, .jpg, .gif" name="img" ref="img" @change="handleFileUpload()" required/>
             </div>
             <div>
-                <label for="nb_sortie">Nombre de sortie </label>
+                <label for="nb_sortie">Nombre de sortie :</label>
                 <input type="text" name="titre" v-model="nb_sortie" required/>
             </div>
             <div>
-                <label for="description">description </label>
-                <input type="text" name="titre" v-model="description" required/>
+                <label for="description">description :</label>
+                <textarea type="text" name="titre" v-model="description" required></textarea>
             </div>
             <div>
-                <label for="short_descript">Résumé </label>
-                <input type="text" name="short_descript" v-model="short_descript" required/>
+                <label for="short_descript">Résumé :</label>
+                <textarea type="text" name="short_descript" v-model="short_descript" required></textarea>
             </div>
-            <button class="bouton" type="submit">Créer livre</button>
-            <button
-        class="btn btn-danger"
-        type="button"
-        @click="resetForm"
-      >
-        Reset
-      </button>
+            <div class="btn">
+                <div>
+                    <button class="btn-vert" type="submit">Créer livre</button>
+                </div>
+                <div>
+                    <button
+                    class="btn btn-danger"
+                    type="button"
+                    @click="resetForm"
+                    >
+                    Reset
+                    </button>
+                </div>
+            </div>
         </form>
 
     </div>
 </template>
 
 
+<style scoped>
+input,
+select {
+    margin :1rem;
+}
+.btn{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+}
 
+.new-book{
+    text-align: center;
+    border: black solid 1px;
+}
+.titre-nouveau-livre{
+    background-color: cornflowerblue;
+    border: black solid 1px;
+}
+.btn-vert{
+    background-color: green;
+    padding : 5px;
+    color:whitesmoke;
+    border-radius: 5px;
+}
+</style>
 
 
 
