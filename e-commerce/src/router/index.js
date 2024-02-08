@@ -8,6 +8,8 @@ import sitemap from '../data/routesList.json'
 import HomeLocationPage from '../components/Location/HomeLocationPage.vue'
 
 import { LivreListe } from '../components'
+import { HomeAdminPage } from '../components'
+import { AdminCreateLivre } from '../components'
 
 
 // Each route should map to a component.
@@ -44,6 +46,17 @@ const routes = [
         name: "LivreListe",
         path: '/livreliste',
         component:LivreListe,
+    },
+    {
+        name: "HomeAdminPage",
+        path: '/admin',
+        component:HomeAdminPage,
+    },
+    {
+
+        name: "AdminCreateLivre",
+        path: "/admin/createlivres",
+        component: AdminCreateLivre
     }
     
 ]
