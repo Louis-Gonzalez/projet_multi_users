@@ -31,6 +31,10 @@ import { useUsersStore } from '../../stores'
         methods:
         {
         ...mapActions(useUsersStore, ['setCurrentUser']),
+        affImg() {
+            const imgUrl = this.getCurrentUser.avatar
+            return imgUrl
+        },
         },
         computed: 
         {
@@ -87,7 +91,7 @@ import { useUsersStore } from '../../stores'
             class="dropdown text-end"
         >
             <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle show" data-bs-toggle="dropdown" aria-expanded="true">
-            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+            <img :src=affImg() alt="mdo" width="32" height="32" class="rounded-circle">
             </a>
             <ul class="dropdown-menu text-small" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(0px, 34px);">
                 <li

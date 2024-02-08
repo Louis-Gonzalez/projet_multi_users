@@ -6,12 +6,16 @@ import LoginPage from '../views/LoginPage.vue'
 import sitemap from '../data/routesList.json'
 
 import HomeLocationPage from '../components/Location/HomeLocationPage.vue'
-
 import { LivreListe } from '../components'
+<<<<<<< HEAD
 import { HomeAdminPage } from '../components'
 import { AdminCreateLivre } from '../components'
 import AdminTabLivres from '../views/Admin/AdminTabLivres.vue'
 import AdminEditLivre from '../views/Admin/AdminEditLivre.vue'
+=======
+import  AdminEditUser  from '../views/Admin/AdminEditUser.vue'
+import AdminTabUsers from '../views/Admin/AdminTabUsers.vue'
+>>>>>>> editusers
 
 
 // Each route should map to a component.
@@ -38,14 +42,13 @@ const routes = [
         component: FormRegister,
     },
     {
-
         name: "LocationPage",
         path: '/location',
         component: HomeLocationPage,
     },
     {
-        
         name: "LivreListe",
+<<<<<<< HEAD
         path: '/livreliste/:categorie',
         component:LivreListe,
     },
@@ -70,8 +73,21 @@ const routes = [
         name: "AdminEditLivre",
         path: "/admin/admineditlivre",
         component: AdminEditLivre
+=======
+        path: '/livreliste',
+        component: LivreListe,
+    },
+    {
+        name: "AdminEditUser",
+        path: '/admin/adminedituser',
+        component: AdminEditUser,
+    },
+    {
+        name: "AdminTabUsers",
+        path: '/admin/admintabusers',
+        component: AdminTabUsers,
+>>>>>>> editusers
     }
-    
 ]
 
 /* SCRIPT  */

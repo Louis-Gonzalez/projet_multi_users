@@ -34,6 +34,15 @@
         "name": "LivreDetailsPage",
         "path": "/livres/:id",
         "component": "LivreDetailsPage.vue" 
+    },    
+    {
+        "uuid" : "admin",
+        "name": "HomeAdminPage",
+        "path": "/admin",
+        "component":"HomeAdminPage.vue"
     }
+<<<<<<< HEAD
    
+=======
+>>>>>>> editusers
 ]
