@@ -20,8 +20,16 @@ export default {
 
     },
     methods: {
-        filterCatListeLivre (){
-
+        getCategories() {
+            const livres = this.getLivres;
+            let categories = ["--Selectionnez une categorie--","Tout"];
+            livres.forEach(livre => {
+                if (!categories.includes(livre.categorie)) {
+                    categories.push(livre.categorie)
+                }
+            });
+            console.log(categories);
+            return categories
         },
         getFourLivre() {
             const arr = this.getLivres;
@@ -55,7 +63,12 @@ export default {
         const imgUrl = new URL("../../assets/img_livres/" + livre.img, import.meta.url).href
         return imgUrl
         },
-        
+        afficherListeLivre(x) {
+            x = x.target.options[x.target.options.selectedIndex].value
+            console.log(x)
+            this.$router.push({ name: 'LivreListe', params: { categorie: x }})
+            console.log("saé")
+        }
     }
 }
 
@@ -66,27 +79,14 @@ export default {
         <div class="header-location-page">
             <div class="recherche-categorie">
                 <label class="" for="choixCategorie"></label>
-                <select id="categorie" class="">
-                    <option value="fiction_populaire">fiction populaire</option>
-                    <option value="roman">roman</option>
-                    <option value="tragedie">tragédie</option>
-                    <option value="jeunesse">jeunesse</option>
-                    <option value="sychologie">psychologie</option>
-                    <option value="strategie_militaire">stratégie militaire</option>
+                <select id="categorie" class="" @change="afficherListeLivre">
+                    <option :value=categorie  v-for="categorie in getCategories()">{{ categorie }}</option>
                 </select>
                 <button type="submit"
-                @submit.prevent="afficherListeLivre"
+                @submit="afficherListeLivre(categorie)"
                 class="btn-vert"
                 >Rechercher</button>
-            </div>
-            <div class="barre-recherche">
-                    <input id="searchbar" onkeyup="search_categorie()" type="text"
-                    name="search" placeholder="Rechercher par categorie..">
-                    <button type="submit"
-                    @submit.prevent="filterCatListeLivre"
-                    class="btn-vert"
-                    >Rechercher</button>
-            </div>
+            </div>            
         </div>
         <h2>Le top 4 des locations</h2>
         <div class="body-location-page">
@@ -101,7 +101,12 @@ export default {
                     <div>
                         <h4>Description</h4>
                         <p>{{item.short_descript}}</p>
-                        <button class="btn-livre">Aller au livre</button>
+                        <router-link
+                        :to="{name: 'LivreDetailsPage', params: {id: item.id}}"
+                        class="btn btn-info"
+                        >
+                            Voir le livre
+                        </router-link>
                     </div>
                 </div>
             </div>

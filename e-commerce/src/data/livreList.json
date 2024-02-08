@@ -1,39 +1,4 @@
-[ {
-    "id": 1,
-    "titre": "Titre du livre 1",
-    "auteur":"auteur du livre 1",
-    "categorie":"une catgeorie",
-    "etat":"bon etat",
-    "emplacement":{"allee":"science", "etagere":3},
-    "img":"livre-par-defaut.jpg",
-    "nb_sortie":20,
-    "description":"chaine de caractère longue et complète",
-    "short_descript": "le debut pitch du livre."
-    },
-    {
-    "id": 2,
-    "titre": "Titre du livre 2",
-    "auteur":"auteur du livre 2",
-    "categorie":"une catgeorie",
-    "etat":"moyennement abimé",
-    "emplacement":{"allee":"psychologie", "etagere":1},
-    "img":"livre-par-defaut.jpg",
-    "nb_sortie":15,
-    "description":"chaine de caractère longue et complète",
-    "short_descript": "le debut pitch du livre."
-    },
-    {
-    "id": 3,
-    "titre": "Titre du livre 3",
-    "auteur":"auteur du livre 3",
-    "categorie":"une catgeorie",
-    "etat":"abimé",
-    "emplacement":{"allee":"jeunnesse", "etagere":5},
-    "img":"livre-par-defaut.jpg",
-    "nb_sortie":150,
-    "description":"chaine de caractère longue et complète",
-    "short_descript": "le debut pitch du livre."
-    },
+[ 
     {
     "id": 4,
     "titre": "50 nuances de gris",
@@ -90,7 +55,7 @@
     "etat":"bon etat",
     "emplacement":{"allee":"adulte", "etagere":1},
     "img":"idiot-psychiatre.png",
-    "nb_sortie":0,
+    "nb_sortie":999,
     "description":"On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L'avantage du Lorem Ipsum sur un texte générique comme 'Du texte. Du texte. Du texte.' est qu'il possède une distribution de lettres plus ou moins normale, et en tout cas comparable avec celle du français standard. De nombreuses suites logicielles de mise en page ou éditeurs de sites Web ont fait du Lorem Ipsum leur faux texte par défaut, et une recherche pour 'Lorem Ipsum' vous conduira vers de nombreux sites qui n'en sont encore qu'à leur phase de construction. Plusieurs versions sont apparues avec le temps, parfois par accident, souvent intentionnellement (histoire d'y rajouter de petits clins d'oeil, voire des phrases embarassantes).",
     "short_descript": "On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions,..."
     },
@@ -225,5 +190,41 @@
     "nb_sortie":73,
     "description":"Après un cataclysme climatique, les survivants de l'espèce humaine sont enfermés dans un train gigantesque qui roule éternellement5. Ce train est très hiérarchisé, avec des wagons dorés en tête où vit l'aristocratie, jusqu'aux wagons des pauvres en fin de convoi. Des wagons militaires assurent la sécurité et des wagons potagers l'alimentation. Le héros, Proloff, issu des wagons de queue, remonte le train afin de comprendre la situation, à la suite d'évènements horribles qu'il refuse d'exposer à ses interlocuteurs. ",
     "short_descript": "Après un cataclysme climatique, les survivants de l'espèce humaine sont enfermés dans un train gigantesque..."
-    }
+    },
+    {
+        "id": 1,
+        "titre": "Titre du livre 1",
+        "auteur":"auteur du livre 1",
+        "categorie":"une catgeorie",
+        "etat":"bon etat",
+        "emplacement":{"allee":"science", "etagere":3},
+        "img":"livre-par-defaut.jpg",
+        "nb_sortie":20,
+        "description":"chaine de caractère longue et complète",
+        "short_descript": "le debut pitch du livre."
+        },
+        {
+        "id": 2,
+        "titre": "Titre du livre 2",
+        "auteur":"auteur du livre 2",
+        "categorie":"une catgeorie",
+        "etat":"moyennement abimé",
+        "emplacement":{"allee":"psychologie", "etagere":1},
+        "img":"livre-par-defaut.jpg",
+        "nb_sortie":15,
+        "description":"chaine de caractère longue et complète",
+        "short_descript": "le debut pitch du livre."
+        },
+        {
+        "id": 3,
+        "titre": "Titre du livre 3",
+        "auteur":"auteur du livre 3",
+        "categorie":"une catgeorie",
+        "etat":"abimé",
+        "emplacement":{"allee":"jeunnesse", "etagere":5},
+        "img":"livre-par-defaut.jpg",
+        "nb_sortie":150,
+        "description":"chaine de caractère longue et complète",
+        "short_descript": "le debut pitch du livre."
+        }
 ]

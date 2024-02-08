@@ -27,14 +27,13 @@ export default {
         >
             Retour à l'administration
         </button>
-        <router-link
-            to="/products"
-            class="btn btn-lg text-center"
+        <button
+            @click="$router.go(-1)"
+            class="btn btn-lg text-center btn-warning"
         >
             Retour à la Liste
-        </router-link>
+        </button>
         <section class="col-12">
-            <h2 class="text-center">Product Detail Page</h2>
             <livre-details
                 :livreId="livreId"
             />

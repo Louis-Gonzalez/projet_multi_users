@@ -44,7 +44,7 @@ const routes = [
     {
         
         name: "LivreListe",
-        path: '/livreliste',
+        path: '/livreliste/:categorie',
         component:LivreListe,
     },
     {

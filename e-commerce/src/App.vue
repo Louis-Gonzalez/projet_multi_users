@@ -54,12 +54,13 @@ export default {
         :showUserNav="false"
       />
     </template>
-    
+    <div style="min-height: 80vh;">
     <router-view v-slot="{ Component }">
       <transition name="slide-fade">
-        <component :is="Component" />
+        <component :is="Component"/>
       </transition>
     </router-view>
+    </div>
     <template #footer>
       <MonFooter/>
     </template>
