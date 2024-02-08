@@ -27,42 +27,12 @@ export default {
       console.log(this.getLivreById(this.livreId));
       return this.getLivreById(this.livreId);
     },
-
-
-    getFourLivre() {
-      const arr = this.getLivres;
-      let largest = arr[0];
-      let secondLargest = -Infinity;
-      let thirdLargest = -Infinity;
-      let fourthLargest = -Infinity;
-      for (let i = 1; i < arr.length; i++) {
-        if (arr[i].nb_sortie > largest.nb_sortie) {
-          fourthLargest = thirdLargest;
-          thirdLargest = secondLargest;
-          secondLargest = largest;
-          largest = arr[i];
-        } else if (arr[i].nb_sortie < largest.nb_sortie && arr[i].nb_sortie > secondLargest.nb_sortie) {
-          fourthLargest = thirdLargest;
-          thirdLargest = secondLargest;
-          secondLargest = arr[i];
-        }
-        else if(arr[i].nb_sortie < secondLargest.nb_sortie && arr[i].nb_sortie > thirdLargest.nb_sortie){
-          fourthLargest = thirdLargest;
-          thirdLargest = arr[i];
-        }
-        else if(arr[i].nb_sortie < thirdLargest.nb_sortie && arr[i].nb_sortie > fourthLargest.nb_sortie){
-          fourthLargest = arr[i];
-        }
-      }
-      return [largest.titre,secondLargest.titre, thirdLargest.titre, fourthLargest.titre];
-    }
   }
 };
 </script>
 
 
 <template>
-  <p> {{ getFourLivre }}</p>
   <section v-if="getCurrentLivre != null" class="container py-5">
     <article class="row">
       <section class="col-lg-6">

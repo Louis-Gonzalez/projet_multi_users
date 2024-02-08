@@ -64,7 +64,7 @@ import { useUsersStore } from '../../stores'
         </ul>
 
         <form  role="search">
-            <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+            <input type="search" class="form-control" placeholder="Search..." aria-label="Search" name="q">
         </form>
 
         <div
