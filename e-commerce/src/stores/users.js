@@ -12,12 +12,16 @@ const getCurrentState = () => {
     const localeData = localStorage.getItem(STORE_LOCALE_STORAGE_KEY)
     return localeData ? JSON.parse(localeData) : getDefaultState()
 }
+const localCurrentUser = () => {
+    const localeDatax = localStorage.getItem("currentUser")
+    return localeDatax ? JSON.parse(localeDatax) : null
+}
 
 export const useUsersStore = defineStore(STORE_NAME, {
     state: () => {
         return {
             users: getCurrentState(),
-            currentUser : null,
+            currentUser : localCurrentUser(),
             userToEdit : null,
         }
     },
@@ -41,6 +45,7 @@ export const useUsersStore = defineStore(STORE_NAME, {
         },
         setCurrentUser (user){
             this.currentUser = user;
+            localStorage.setItem("currentUser", JSON.stringify(user))
         },
         setUserToEdit (user){
             this.userToEdit = user;
@@ -53,7 +58,10 @@ export const useUsersStore = defineStore(STORE_NAME, {
             })
             this.users[index] = user
             this.updateLocaleStorage()
-    }
+        },
+        updateAvatar(avatar) {
+            this.UserToEdit.avatar = avatar
+        }
     }
 })
 

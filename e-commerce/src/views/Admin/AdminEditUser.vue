@@ -1,7 +1,6 @@
 <script>
 import { useUsersStore } from '../../stores';
 import { mapActions, mapState } from 'pinia'
-
 export default {
     name:"AdminEditUser",
     data(){
@@ -17,12 +16,15 @@ export default {
             email:"",
             admin:"",
             status:"",
+            zone:""
         }
     },
     methods: {
-        ...mapActions(useUsersStore, ['updateuser']),
-
-        submitForm() {
+        ...mapActions(useUsersStore, ['updateuser','updateAvatar']),
+        test(x) {
+            console.log(x + "")
+            this.avatar = x + ""
+            console.log(this.avatar)
             const user = {
                 id: this.getUserToEdit.id,
                 nom: this.nom,
@@ -40,13 +42,40 @@ export default {
                 historique: this.getUserToEdit.historique
                 
             }
+            console.log(this.avatar + "")
+            console.log(user)
             this.updateuser(user)
-            this.$router.push({name:'AdminTabUsers'})
+        },
+        encodeImageFileAsURL(element) {
+            var file = element
+            var reader = new FileReader();
+            reader.onloadend = () => {
+                reader.result
+                imgElem.setAttribute('src', reader.result);
+                this.test(reader.result)
+            }
+            reader.readAsDataURL(file);
+
+        },
+        handleFileUpload(){
+            this.avatar = this.$refs.avatar.files[0];
+            console.log(this.avatar.name)
+        },
+        
+        affImg() {
+            const imgUrl = this.getUserToEdit.avatar
+            return imgUrl
+        },
+        submitForm() {
+            let formData = new FormData();
+            formData.append('file', this.avatar);
+            this.encodeImageFileAsURL(this.avatar)
+            
         },
         
     },
     computed:{
-        ...mapState(useUsersStore, ['getUserToEdit'])
+        ...mapState(useUsersStore, ['getUserToEdit']),     
     },
     mounted() {
             const user = this.getUserToEdit
@@ -70,6 +99,7 @@ export default {
 
 <template>
     <div>
+        <img id="imgElem">
         <div class="titre-profil">
             <h1>Profil</h1>
         </div>
@@ -102,7 +132,7 @@ export default {
                         </div>
                     </div>
                     <div class="partie-deux">
-                        <img src="./img_avatar/images.jpg" atl="img avatar profil" width="auto" height="auto">
+                        <img :src=affImg() alt="img avatar profil" width="auto" height="auto">
                     </div>
                 </div>
                 <div class="droits">
@@ -138,7 +168,7 @@ export default {
                 <div>
                     <div>
                         <label for="Avatar">Avatar :</label>
-                        <input class="champs" type="file" accept=".jpeg, .png, .jpg, .gif" name="avatar"/>
+                        <input class="champs" type="file" accept=".jpeg, .png, .jpg, .gif" name="avatar" ref="avatar" @change="handleFileUpload()"/>
                     </div>
                     <button class="btn-vert" @click="submitForm()">Valider les modifications</button>
                 </div>

@@ -22,6 +22,10 @@ export default {
             
             return tabUsers
         },
+        affImg(user) {
+            const imgUrl = user.avatar
+            return imgUrl
+        },
         
         editUser(user){
             this.setUserToEdit(user)
@@ -56,7 +60,8 @@ export default {
                         <td>{{item.prenom}}</td>
                         <td>{{item.nom}}</td>
                         <td>{{item.username}}</td>
-                        <td>{{item.avatar}}</td>
+                        <td>
+                            <img :src=affImg(item) alt="img avatar profil" width="auto" height="auto"></td>
                         <td>
                             <button class="btn-bleu" @click="editUser(item)">Editer</button>
                             <button class="btn-rouge" @click="deleteUser(item)">Supprimer</button>
