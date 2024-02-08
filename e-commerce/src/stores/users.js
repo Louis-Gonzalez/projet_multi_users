@@ -18,12 +18,14 @@ export const useUsersStore = defineStore(STORE_NAME, {
         return {
             users: getCurrentState(),
             currentUser : null,
+            userToEdit : null,
         }
     },
     getters: {
         getUsers: (state) => state.users,
         getUserById: (state) => (id) => state.users.find(user => user.id == id),
-        getCurrentUser: (state) => state.currentUser
+        getCurrentUser: (state) => state.currentUser,
+        getUserToEdit: (state) => state.userToEdit
     },
     actions: {
         updateLocaleStorage() {
@@ -33,8 +35,26 @@ export const useUsersStore = defineStore(STORE_NAME, {
             this.users.push(user)
             this.updateLocaleStorage()
         },
+        deleteUser(user){
+            this.users = this.users.filter(el => el.id != user.id)
+            this.updateLocaleStorage()
+        },
         setCurrentUser (user){
             this.currentUser = user;
-        }
+        },
+        setUserToEdit (user){
+            this.userToEdit = user;
+            console.log(this.userToEdit)
+        },
+        updateuser(user) {
+            console.log("update in store", user)
+            const index = this.users.findIndex(el => {
+                return el.id === user.id
+            })
+            this.users[index] = user
+            this.updateLocaleStorage()
+    }
     }
 })
+
+

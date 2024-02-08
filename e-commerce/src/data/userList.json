@@ -23,5 +23,131 @@
                 "id":"17"
             }
         ]
+    }, 
+    {
+        "id": 2,
+        "username":"adamass", 
+        "password":"ssamada",
+        "nom":"Doudeau",
+        "prenom":"Adam",
+        "email":"adam.doudeau2@gmail.com",
+        "adresse":"Chez moi",
+        "tel":"0606060606",
+        "cp":"01090",
+        "ville":"Francheleins",
+        "admin":true,
+        "status":true,
+        "avatar":"adam.doudeau2.png",
+        "historique": [
+            {
+                "dateLocation":"2022-01-01",
+                "id":"14"
+            },
+            {
+                "dateLocation":"2023-05-07",
+                "id":"17"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "username":"adamass", 
+        "password":"ssamada",
+        "nom":"Doudeau",
+        "prenom":"Adam",
+        "email":"adam.doudeau2@gmail.com",
+        "adresse":"Chez moi",
+        "tel":"0606060606",
+        "cp":"01090",
+        "ville":"Francheleins",
+        "admin":true,
+        "status":true,
+        "avatar":"adam.doudeau2.png",
+        "historique": [
+            {
+                "dateLocation":"2022-01-01",
+                "id":"14"
+            },
+            {
+                "dateLocation":"2023-05-07",
+                "id":"17"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "username":"adamass", 
+        "password":"ssamada",
+        "nom":"Doudeau",
+        "prenom":"Adam",
+        "email":"adam.doudeau2@gmail.com",
+        "adresse":"Chez moi",
+        "tel":"0606060606",
+        "cp":"01090",
+        "ville":"Francheleins",
+        "admin":true,
+        "status":true,
+        "avatar":"adam.doudeau2.png",
+        "historique": [
+            {
+                "dateLocation":"2022-01-01",
+                "id":"14"
+            },
+            {
+                "dateLocation":"2023-05-07",
+                "id":"17"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "username":"seraphin", 
+        "password":"samurai",
+        "nom":"Gonzalez",
+        "prenom":"Louis",
+        "email":"gonzalezlouis1981@gmail.com",
+        "adresse":"Rue du pont",
+        "tel":"0607080910",
+        "cp":"01090",
+        "ville":"Francheleins",
+        "admin":true,
+        "status":true,
+        "avatar":"images.jpg",
+        "historique": [
+            {
+                "dateLocation":"2022-01-01",
+                "id":"05"
+            },
+            {
+                "dateLocation":"2023-05-07",
+                "id":"2"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "username":"krocco", 
+        "password":"lacoste",
+        "nom":"lesoudier",
+        "prenom":"marc",
+        "email":"lesoudier.marc@yoyu.com",
+        "adresse":"rue du fou",
+        "tel":"0709562310",
+        "cp":"01560",
+        "ville":"st andre",
+        "admin":true,
+        "status":true,
+        "avatar":"avatar.png",
+        "historique": [
+            {
+                "dateLocation":"2022-01-01",
+                "id":"10"
+            },
+            {
+                "dateLocation":"2023-05-07",
+                "id":"14"
+            }
+        ]
     }
+
 ]
