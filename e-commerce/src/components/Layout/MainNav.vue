@@ -74,7 +74,7 @@ import { useUsersStore } from '../../stores'
                     {{item.name ? item.name : 'link'}}
                 </router-link>
             </li>
-            <li v-if="this.getAdmin">
+            <li v-if="this.getAdmin == true">
                 <router-link
                     :to="'/admin'"
                     class="nav-link px-2 link-secondary"

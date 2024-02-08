@@ -141,16 +141,16 @@ export default {
                         <label for="admin">Modifier les droits:</label>
                         <select v-model="admin" required>
                             <h3>Ouvrir les droits Admin ou non :</h3>
-                            <option value="non-admin">Non Admin</option>
-                            <option value="admin">Admin</option>
+                            <option value="false">Non Admin</option>
+                            <option value="true">Admin</option>
                         </select>
                     </div>
                     <div class="status">
                         <label for="status">Modifier le status de location :</label>
                         <select v-model="status" required>
                             <h3>Ouvrir le status à la location des livres ou non </h3>
-                            <option value="Location-possible">Location possible</option>
-                            <option value="pas-de-location">Pas de location</option>
+                            <option value="true">Location possible</option>
+                            <option value="false">Pas de location</option>
                         </select>
                     </div>
                 </div>

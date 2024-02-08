@@ -8,34 +8,30 @@ export default {
         return {
             username: "", // c'est dans le return les actions avec v-model
             password: "",
-        }
+        };
     },
     methods: {
-        matchLogin(){
-            console.log(this.getUsers)
-            const user = this.getUsers.find(user => user.username === this.username)
-            console.log(user)
+        matchLogin() {
+            console.log(this.getUsers);
+            const user = this.getUsers.find(user => user.username === this.username);
+            console.log(user);
             // il faut parcourir le tabelau de usersName et qu'il y a une corrspodance.
-                // ceci renvoi un objet user.password
-                if (this.password == user.password){
-                    // aller sur home avec le profil connecté
-                    this.setCurrentUser(user);
-                    this.$router.go(-1)
-                }
-                else{
-                    this.setCurrentUser(null)
-                } 
-            return "Vous etes connecté"
+            // ceci renvoi un objet user.password
+            if (this.password == user.password) {
+                // aller sur home avec le profil connecté
+                this.setCurrentUser(user);
+                this.$router.go(-1);
+            }
+            else {
+                this.setCurrentUser(null);
+            }
+            return "Vous etes connecté";
         },
         ...mapActions(useUsersStore, ['setCurrentUser'])
     },
     computed: {
         ...mapState(useUsersStore, ['getUsers'])
-
-
     }
-
-
 }
 </script>
 
@@ -55,9 +51,7 @@ export default {
                 <div class="div-input">
                     <button type="submit" class="btn-submit">Login</button>
                     
-                    <p id="vous-inscrire" a href="../components/Form/FormRegister.vue">
-                        Cliquer ici pour vous inscrire !
-                    </p>
+                    <router-link :to="'/register'"> <p>Cliquer ici pour vous inscrire !</p> </router-link>
                 </div>
             </div>
         </table>

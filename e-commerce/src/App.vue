@@ -31,12 +31,6 @@ export default {
           link: "/location",
           target: "_self",
           class: "link-body-emphasis"
-        },
-        {
-          name: "Admin",
-          link: "/admin",
-          target: "_self",
-          class: "link-body-emphasis"
         }
       ]
     }
