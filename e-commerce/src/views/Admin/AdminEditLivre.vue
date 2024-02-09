@@ -88,10 +88,6 @@ export default {
                         <label for="categorie">Catégorie :</label>
                         <input class="champs" type="text" name="categorie" v-model="categorie" required/>
                     <div>
-                        <label for="etat">Etat :</label>
-                        <input class="champs" type="text" name="etat" v-model="etat" required/>
-                    </div>
-                    <div>
                         <label for="allee">Allée :</label>
                         <input class="champs" type="text" name="allee" v-model="allee" required/>
                     </div>
@@ -125,8 +121,8 @@ export default {
                     <select v-model="etat" required>
                         <h3>Ouvrir l'état du livre </h3>
                         <option value="bon-etat">Bon état</option>
-                        <option value="moyennement-abime">Moyennement abîmé </option>
-                        <option value="abime">Abîme</option>
+                        <option value="moyennement abimé">Moyennement abîmé </option>
+                        <option value="abimé">Abîme</option>
                     </select>
                 </div>
                 <button class="btn-vert" @click="submitForm()">Valider les modifications</button>
