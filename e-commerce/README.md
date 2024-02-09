@@ -149,3 +149,9 @@ V 0.4 -- Création des pages en lien avec les administrateurs
     - Marc : création de la page HomeAdminPage.vue avec CSS, création de la page AdminCreateLivre.vue avec formulaire de création de livre (data + method) (Adam à géré le resetForm)
     - Adam : création des liens entre les différentes pages de locations, création de l'affichage de la page ListeLivre selon la catégorie sélectionnée.
     - Louis : création AdminTabUsers.
+
+V 0.5 -- Modification des pages Inscriptionuser, editUser, navbar et modification du css
+    - Adam : Correction des liaisons entre les forms et leurs tableaux de réception.
+    - Louis : Modification de la navbar au niveau des boutons et leurs apparences.
+    - Louis : Correction de redirect de fin de form adminedituser et createuser.
+
