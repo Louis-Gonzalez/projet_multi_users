@@ -16,7 +16,8 @@
                     img: "",
                     nb_sortie: "",
                     description: "",
-                    short_descript: ""
+                    short_descript: "",
+                    search : ''
             }
         },
         computed: {
@@ -33,6 +34,15 @@
                 this.setLivreToEdit(livre)
                 this.$router.push({name: 'AdminEditLivre'})
             },
+                filteredProducts() {
+                return this.getLivres.filter(el => {
+                    // return true if the product should be visible
+
+                    // in this example we just check if the search string
+                    // is a substring of the product name (case insensitive)
+                    return el.titre.toLowerCase().indexOf(this.search.toLowerCase()) != -1;
+                });
+            }
 
         }
     }
@@ -41,6 +51,9 @@
 
 <template>
     <div>
+        <div class="search-wrapper panel-heading col-sm-12">
+            <input class="search" type="text" v-model="search" placeholder="Search by title" /> <br> <br>
+        </div>
         <div  class="titre-tab">
             <h2>Tableau des livres</h2>
         </div>    
@@ -59,7 +72,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="item in getTabLivres()"
+                    <tr v-for="item in filteredProducts()"
                         >
                         <td class="size-id">{{item.id}}</td>
                         <td>{{item.titre}}</td>

@@ -22,9 +22,7 @@ export default {
     methods: {
         ...mapActions(useUsersStore, ['updateuser','updateAvatar']),
         test(x) {
-            console.log(x + "")
             this.avatar = x + ""
-            console.log(this.avatar)
             const user = {
                 id: this.getUserToEdit.id,
                 nom: this.nom,
@@ -42,9 +40,9 @@ export default {
                 historique: this.getUserToEdit.historique
                 
             }
-            console.log(this.avatar + "")
-            console.log(user)
+            console.log(this.avatar)
             this.updateuser(user)
+            this.$router.go(-1)
         },
         encodeImageFileAsURL(element) {
             var file = element

@@ -5,10 +5,8 @@ import AdminEditUser from './AdminEditUser.vue';
 
 export default {
     name: "AdminTabUsers",
-    component: 
+    component: {
         AdminEditUser,
-    data (){
-        return
     },
     computed: {
 

@@ -42,6 +42,7 @@ import { useUsersStore } from '../../stores'
         ...mapState(useUsersStore, ['getCurrentUser']),
         getAdmin() {
             let x
+            console.log(this.getCurrentUser)
             if (this.getCurrentUser != null) {
                 x =  this.getCurrentUser.admin
             }
@@ -49,7 +50,7 @@ import { useUsersStore } from '../../stores'
                 x = false
             }
             console.log(this.getCurrentUser)
-            console.log(x)
+            console.log(x == "true")
             return x
         }
         } 
@@ -74,7 +75,7 @@ import { useUsersStore } from '../../stores'
                     {{item.name ? item.name : 'link'}}
                 </router-link>
             </li>
-            <li v-if="this.getAdmin == true">
+            <li v-if="this.getAdmin == true || this.getAdmin == 'true'">
                 <router-link
                     :to="'/admin'"
                     class="nav-link px-2 link-secondary"
@@ -82,14 +83,11 @@ import { useUsersStore } from '../../stores'
             </li>
         </ul>
 
-        <form  role="search">
-            <input type="search" class="form-control" placeholder="Search..." aria-label="Search" name="q">
-        </form>
-
         <div
             v-if="this.getCurrentUser != null "
             class="dropdown text-end"
         >
+            <p> Bonjour, {{ this.getCurrentUser.username }}</p>
             <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle show" data-bs-toggle="dropdown" aria-expanded="true">
             <img :src=affImg() alt="mdo" width="32" height="32" class="rounded-circle">
             </a>
@@ -113,9 +111,9 @@ import { useUsersStore } from '../../stores'
         </div>
         <div v-else class="text-end">
             <button class="btn btn-outline-primary me-2" @:click="$router.push('/login')">Connexion</button>
-        </div>
-        <div>
+            <div>
             <button @:click="$router.push('/register')">Inscription</button>
+            </div>
         </div>
       </div>
     </div>
