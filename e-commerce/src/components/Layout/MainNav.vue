@@ -31,14 +31,27 @@ import { useUsersStore } from '../../stores'
         methods:
         {
         ...mapActions(useUsersStore, ['setCurrentUser']),
-        test(){
-            console.log("eyho", getCurrentUser)
-        }
+        affImg() {
+            const imgUrl = this.getCurrentUser.avatar
+            return imgUrl
+        },
         },
         computed: 
         {
         ...mapState(useAppStore, ['getIsAuthenticated', 'getIsAdmin']),
-        ...mapState(useUsersStore, ['getCurrentUser'])
+        ...mapState(useUsersStore, ['getCurrentUser']),
+        getAdmin() {
+            let x
+            if (this.getCurrentUser != null) {
+                x =  this.getCurrentUser.admin
+            }
+            else {
+                x = false
+            }
+            console.log(this.getCurrentUser)
+            console.log(x)
+            return x
+        }
         } 
     }
 </script>
@@ -61,10 +74,16 @@ import { useUsersStore } from '../../stores'
                     {{item.name ? item.name : 'link'}}
                 </router-link>
             </li>
+            <li v-if="this.getAdmin == true">
+                <router-link
+                    :to="'/admin'"
+                    class="nav-link px-2 link-secondary"
+                    >Admin</router-link>
+            </li>
         </ul>
 
         <form  role="search">
-            <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+            <input type="search" class="form-control" placeholder="Search..." aria-label="Search" name="q">
         </form>
 
         <div
@@ -72,7 +91,7 @@ import { useUsersStore } from '../../stores'
             class="dropdown text-end"
         >
             <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle show" data-bs-toggle="dropdown" aria-expanded="true">
-            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+            <img :src=affImg() alt="mdo" width="32" height="32" class="rounded-circle">
             </a>
             <ul class="dropdown-menu text-small" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(0px, 34px);">
                 <li

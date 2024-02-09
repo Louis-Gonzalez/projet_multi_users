@@ -31,12 +31,6 @@ export default {
           link: "/location",
           target: "_self",
           class: "link-body-emphasis"
-        },
-        {
-          name: "Admin",
-          link: "/admin",
-          target: "_self",
-          class: "link-body-emphasis"
         }
       ]
     }
@@ -54,12 +48,13 @@ export default {
         :showUserNav="false"
       />
     </template>
-    
+    <div style="min-height: 80vh;">
     <router-view v-slot="{ Component }">
       <transition name="slide-fade">
-        <component :is="Component" />
+        <component :is="Component"/>
       </transition>
     </router-view>
+    </div>
     <template #footer>
       <MonFooter/>
     </template>

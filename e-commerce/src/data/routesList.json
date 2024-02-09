@@ -35,5 +35,4 @@
         "path": "/livres/:id",
         "component": "LivreDetailsPage.vue" 
     }
-    
 ]
