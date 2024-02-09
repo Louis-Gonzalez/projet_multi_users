@@ -145,5 +145,3 @@ V 0.3 -- création de la page location et ses dépendences
     - Marc : création de la page de liste des livres avec lien vers la page détaillé d'un livre.
     - Adam : création de la page détaillée d'un livre et création fonction affiche image du livre et getFourLivre (récupérer les 4 livres les plus loués).
 
-V 0.4 -- 
-    -
