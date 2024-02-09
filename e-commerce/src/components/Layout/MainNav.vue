@@ -112,7 +112,7 @@ import { useUsersStore } from '../../stores'
         <div v-else class="text-end">
             <button class="btn btn-outline-primary me-2" @:click="$router.push('/login')">Connexion</button>
             <div>
-            <button @:click="$router.push('/register')">Inscription</button>
+            <button class="btn-inscription" @:click="$router.push('/register')">Inscription</button>
             </div>
         </div>
       </div>
@@ -134,6 +134,20 @@ import { useUsersStore } from '../../stores'
     .router-link-active:hover {
         font-size: 1.5rem;
     }
+.text-end{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.5rem;
+    align-items: center;
+}
+.btn-inscription{
+    border-radius: 5px;
+    background-color: rgb(145, 199, 168);
+    padding: 6px;
+}
+.btn-inscription:hover{
+    background-color: rgb(230, 145, 190);
+}
 </style>
 
 <!-- $router.push('/login') ligne 79 btn   @:click="showUserNav = true"  -->

@@ -69,6 +69,7 @@ export default {
             formData.append('file', this.avatar);
             this.encodeImageFileAsURL(this.avatar)
             
+            
         },
         
     },
@@ -125,8 +126,8 @@ export default {
                             <input class="champs" type="text" name="ville" v-model="ville" required/>
                         </div>
                         <div>
-                            <label for="CP">Code Postal : </label>
-                            <input class="champs" type="text" name="CP" v-model="cp" required/>
+                            <label for="cp">Code Postal : </label>
+                            <input class="champs" type="text" name="cp" v-model="cp" required/>
                         </div>
                     </div>
                     <div class="partie-deux">
@@ -159,14 +160,14 @@ export default {
                         <input class="champs" type="text" name="username" v-model="username" required/>
                     </div>
                     <div>
-                        <label for="mail">Mail :</label>
-                        <input class="champs" type="mail" name="mail" v-model="email" required/>
+                        <label for="email">Mail :</label>
+                        <input class="champs" type="mail" name="email" v-model="email" required/>
                     </div>
                 </div>
                 <div>
                     <div>
                         <label for="Avatar">Avatar :</label>
-                        <input class="champs" type="file" accept=".jpeg, .png, .jpg, .gif" name="avatar" ref="avatar" @change="handleFileUpload()"/>
+                        <input class="champs" type="file" accept=".jpeg, .png, .jpg, .gif" name="avatar" ref="avatar" @change="handleFileUpload()" required/>
                     </div>
                     <button class="btn-vert" @click="submitForm()">Valider les modifications</button>
                 </div>

@@ -24,6 +24,8 @@ export default {
             }
             else {
                 this.setCurrentUser(null);
+                this.username = null;
+                this.password = null;
             }
             return "Vous etes connecté";
         },
@@ -36,33 +38,42 @@ export default {
 </script>
 
 <template>
-    <form @submit.prevent="matchLogin">
-        <table>
-            <div class="super-div-input">
-                <div class="div-input">
-                    <h2>LoginPage</h2>
-                    <label for="userName" method="post"> Entrer votre UserName :</label>
-                    <input class= "input" type="text" name="userName" v-model="username">
-                </div>
-                <div class="div-input">
-                    <label for="password" method="post"> Entrer votre password :</label>
-                    <input class= "input" type="password" name="password" v-model="password">
-                </div>
-                <div class="div-input">
-                    <button type="submit" class="btn-submit">Login</button>
-                    
-                    <router-link :to="'/register'"> <p>Cliquer ici pour vous inscrire !</p> </router-link>
-                </div>
-            </div>
-        </table>
-    </form>
+    <div class="form-login">
+        <div class="titre-login">
+                <h2>LoginPage</h2>
+        </div>
+        <div class="form">
+            <form @submit.prevent="matchLogin">
+                <table>
+                    <div class="div-input">
+                                            <label for="userName" method="post"> Entrer votre UserName :</label>
+                        <input class= "input" type="text" name="userName" v-model="username">
+                    </div>
+                    <div class="div-input">
+                        <label for="password" method="post"> Entrer votre password :</label>
+                        <input class= "input" type="password" name="password" v-model="password">
+                    </div>
+                    <div class="div-input">
+                        <button type="submit" class="btn-submit">Login</button>
+                        <router-link :to="'/register'"> <p>Cliquer ici pour vous inscrire !</p> </router-link>
+                    </div>
+                </table>
+            </form>
+        </div>
+    </div>
 </template>
 
 <style scoped>
+.form-login{
+    justify-content: center;
+    border: black solid 1px;
+}
     .btn-submit{
         background-color: green;
         border-radius: 5px;
         font-weight: bold;
+        margin: 1rem;
+        padding: 0.5rem;
     }
     h1,
     .div-input{
@@ -77,7 +88,15 @@ export default {
         text-decoration: underline;
         color:blue;
     }
-    .super-div-input{
-background-color: rgb(202, 175, 139);
+    .titre-login{
+    background-color:  rgb(145, 199, 168);
+    text-align: center;
+    padding: 0.5rem;
+    width: 100%;
     }
+.form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 </style>

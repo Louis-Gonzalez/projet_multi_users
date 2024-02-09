@@ -162,4 +162,8 @@ p{
     text-align: center;
     margin: 1rem
 }
+.btn-info{
+    margin: 1rem;
+}
+
 </style>
